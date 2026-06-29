@@ -1,15 +1,18 @@
-<div style="padding: 20px; font-family: sans-serif;">
-  <h2>Test du Badge de Statut Financier</h2>
-  
-  <p>Badge par défaut (sans propriété) : 
-    <app-status-badge></app-status-badge>
-  </p>
+<div class="tp-container">
+  <header>
+    <h1>École 221 - Licence 3 Informatique</h1>
+    <h2>Dashboard Analyste Financier (Thème 1 - Exercice 3)</h2>
+  </header>
 
-  <p>Badge Validé : 
-    <app-status-badge [statut]="'VALIDE'"></app-status-badge>
-  </p>
+  <section class="search-section">
+    <app-filter-bar [(searchQuery)]="textRecherche"></app-filter-bar>
+  </section>
 
-  <p>Badge Rejeté : 
-    <app-status-badge [statut]="'REJETE'"></app-status-badge>
-  </p>
+  <section class="results-section">
+    <app-transaction-grid 
+      [transactions]="listeFiltree()"
+      (onActionFavori)="toggleFavori($event)"
+      (onActionArchiver)="toggleArchiver($event)">
+    </app-transaction-grid>
+  </section>
 </div>

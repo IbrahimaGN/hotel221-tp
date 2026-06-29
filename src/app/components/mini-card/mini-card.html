@@ -1,0 +1,19 @@
+<div class="card" [ngClass]="{'is-favori': transaction().isFavori, 'is-archive': transaction().isArchive}">
+  <div class="card-header">
+    <h4>{{ transaction().nomService }}</h4>
+    <span class="ref">{{ transaction().reference }}</span>
+  </div>
+  
+  <div class="card-body">
+    <p class="amount">{{ transaction().montant | currency:'XOF ':'symbol':'1.0-0' }}</p>
+  </div>
+  
+  <div class="card-actions">
+    <button (click)="favori()" [class.active]="transaction().isFavori">
+      {{ transaction().isFavori ? '❤️ Favori' : '🤍 Mettre en favori' }}
+    </button>
+    <button (click)="archiver()" [class.active]="transaction().isArchive">
+      {{ transaction().isArchive ? '📦 Archivé' : '📁 Archiver' }}
+    </button>
+  </div>
+</div>

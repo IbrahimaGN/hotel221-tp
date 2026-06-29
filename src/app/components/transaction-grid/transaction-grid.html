@@ -1,0 +1,11 @@
+<div class="grid-container">
+  @for (item of transactions(); track item.id) {
+    <app-mini-card 
+      [transaction]="item"
+      (onToggleFavori)="onActionFavori.emit($event)"
+      (onToggleArchiver)="onActionArchiver.emit($event)">
+    </app-mini-card>
+  } @empty {
+    <div class="empty-grid">Aucune transaction trouvée dans le registre.</div>
+  }
+</div>
