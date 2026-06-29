@@ -1,0 +1,17 @@
+<span class="badge" [ngClass]="{
+  'bg-success': statut() === 'VALIDE',
+  'bg-warning': statut() === 'EN_ATTENTE',
+  'bg-danger': statut() === 'REJETE'
+}">
+  @switch (statut()) {
+    @case ('VALIDE') {
+      Validé
+    }
+    @case ('REJETE') {
+      Rejeté
+    }
+    @default {
+      En attente
+    }
+  }
+</span>

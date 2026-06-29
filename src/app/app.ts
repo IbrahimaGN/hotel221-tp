@@ -1,12 +1,13 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { StatusBadgeComponent } from './components/status-badge/status-badge';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [StatusBadgeComponent], // On importe le badge ici pour pouvoir l'utiliser
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('hotel221-tp');
+export class AppComponent {
+  title = 'hotel221-tp';
 }
